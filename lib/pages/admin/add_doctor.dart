@@ -40,7 +40,7 @@ class _AddDoctorState extends State<AddDoctor> {
   List<String> keyslist = [];
   String dropdownValue = 'الأعاقة البصرية';
 
-   @override
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     fetchDoctors();
@@ -60,7 +60,6 @@ class _AddDoctorState extends State<AddDoctor> {
     });
   }
 
-
   Future pickImageFromDevice() async {
     final xFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (xFile == null) return;
@@ -69,7 +68,28 @@ class _AddDoctorState extends State<AddDoctor> {
       image = tempImage;
       print(image!.path);
     });
-    
+
+    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImages = referenceRoot.child('images');
+    Reference refrenceImageToUpload = referenceDirImages.child(uniqueFileName);
+    try {
+      await refrenceImageToUpload.putFile(File(xFile.path));
+
+      imageUrl = await refrenceImageToUpload.getDownloadURL();
+    } catch (error) {}
+    print(imageUrl);
+  }
+
+  Future pickImageFromCamera() async {
+    final xFile = await ImagePicker().pickImage(source: ImageSource.camera);
+    if (xFile == null) return;
+    final tempImage = File(xFile.path);
+    setState(() {
+      image = tempImage;
+      print(image!.path);
+    });
+
     String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
     Reference referenceRoot = FirebaseStorage.instance.ref();
     Reference referenceDirImages = referenceRoot.child('images');
@@ -103,11 +123,9 @@ class _AddDoctorState extends State<AddDoctor> {
                       child: CircleAvatar(
                         radius: 65,
                         backgroundColor: HexColor('#cfe2f3'),
-                        backgroundImage: image==null ?
-                        null:
-                        FileImage(image!),
-                      )
-                      ),
+                        backgroundImage:
+                            image == null ? null : FileImage(image!),
+                      )),
                   Positioned(
                       top: 120,
                       left: 120,
@@ -161,7 +179,9 @@ class _AddDoctorState extends State<AddDoctor> {
                                                   ],
                                                 )),
                                             InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  pickImageFromCamera();
+                                                },
                                                 splashColor:
                                                     HexColor('#FA8072'),
                                                 child: Row(
@@ -183,7 +203,11 @@ class _AddDoctorState extends State<AddDoctor> {
                                                   ],
                                                 )),
                                             InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  setState(() {
+                                                    Navigator.pop(context);
+                                                  });
+                                                },
                                                 splashColor:
                                                     HexColor('#FA8072'),
                                                 child: Row(
@@ -218,7 +242,7 @@ class _AddDoctorState extends State<AddDoctor> {
             SizedBox(
               height: 10,
             ),
-           DecoratedBox(
+            DecoratedBox(
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
@@ -236,8 +260,8 @@ class _AddDoctorState extends State<AddDoctor> {
                 value: dropdownValue,
                 icon: Padding(
                   padding: EdgeInsets.only(right: 5),
-                  child:
-                      Icon(Icons.arrow_drop_down, color: Color.fromARGB(255, 119, 118, 118)),
+                  child: Icon(Icons.arrow_drop_down,
+                      color: Color.fromARGB(255, 119, 118, 118)),
                 ),
 
                 // Step 4.
@@ -251,7 +275,8 @@ class _AddDoctorState extends State<AddDoctor> {
                       child: Text(
                         value,
                         style: TextStyle(
-                            fontSize: 18, color: Color.fromARGB(255, 119, 118, 118)),
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 119, 118, 118)),
                       ),
                     ),
                   );
