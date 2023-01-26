@@ -84,19 +84,26 @@ class _UserHomeState extends State<UserHome> {
                           ),
                           child: Column(
                             children: [
-                              SizedBox(height: 10),
                               Center(
                                 child: CircleAvatar(
                                   backgroundColor: Colors.amber.shade500,
                                   radius: 30,
                                   backgroundImage:
-                                      AssetImage('assets/images/person.png'),
+                                      AssetImage('assets/images/logo5.jfif'),
                                 ),
                               ),
                               SizedBox(height: 10),
+                              Text("${currentUser.email}",
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white)),
+                              SizedBox(height: 5),
                               Text("${currentUser.fullName}",
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white)),
+                                      fontSize: 16, color: Colors.white)),
+                              SizedBox(height: 5),
+                              Text("${currentUser.phoneNumber}",
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white)),
                             ],
                           ),
                         ),
@@ -106,7 +113,8 @@ class _UserHomeState extends State<UserHome> {
                                 splashColor: Theme.of(context).splashColor,
                                 child: ListTile(
                                   onTap: () {
-                                    Navigator.pushNamed(context, UserDoctor.routeName);
+                                    Navigator.pushNamed(
+                                        context, UserDoctor.routeName);
                                   },
                                   title: Text('حجز موعد مع طبيب'),
                                   leading: Icon(Icons.access_time),
@@ -118,46 +126,13 @@ class _UserHomeState extends State<UserHome> {
                                 child: ListTile(
                                   onTap: () {
                                     Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return UserCourses(
-                                  
-                                );
-                              }));
+                                        MaterialPageRoute(builder: (context) {
+                                      return UserCourses();
+                                    }));
                                   },
                                   title: Text('حجز دورة تدريبية'),
                                   leading: Icon(Icons.task),
                                 ))),
-                        Divider(
-                          thickness: 0.80,
-                          color: Colors.grey,
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.person,
-                          ),
-                          title: const Text('اسم المستخدم'),
-                          subtitle: Text('${currentUser.fullName}'),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.email,
-                          ),
-                          title: const Text('البريد الالكترونى'),
-                          subtitle: Text('${currentUser.email}'),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        ListTile(
-                          leading: Icon(
-                            Icons.phone,
-                          ),
-                          title: const Text('رقم الهاتف'),
-                          subtitle: Text('${currentUser.phoneNumber}'),
-                        ),
                         Divider(
                           thickness: 0.80,
                           color: Colors.grey,
@@ -173,8 +148,8 @@ class _UserHomeState extends State<UserHome> {
                                         builder: (context) {
                                           return AlertDialog(
                                             title: Text('تأكيد'),
-                                            content:
-                                                Text('هل انت متأكد من تسجيل الخروج'),
+                                            content: Text(
+                                                'هل انت متأكد من تسجيل الخروج'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () {
@@ -243,7 +218,8 @@ class _UserHomeState extends State<UserHome> {
                     children: [
                       InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, EssayPhysical.routeName);
+                            Navigator.pushNamed(
+                                context, EssayPhysical.routeName);
                           },
                           child: card(
                               'assets/images/physical.jpg', 'الأعاقة الجسدية')),
