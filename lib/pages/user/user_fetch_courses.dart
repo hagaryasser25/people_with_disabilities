@@ -151,8 +151,11 @@ class _UserFetchCoursesState extends State<UserFetchCourses> {
                                   String? id = companyRef.push().key;
 
                                   await companyRef.child(id!).set({
+                                    'id': id,
                                     'date': date,
                                     'userEmail': currentUser.email,
+                                    'userName': currentUser.fullName,
+                                    'userPhone': currentUser.phoneNumber,
                                     'code': coursesList[index].code.toString(),
                                   });
                                 }

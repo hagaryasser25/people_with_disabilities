@@ -54,7 +54,7 @@ class _CourseListState extends State<CourseList> {
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         builder: (context, child) => Scaffold(
-            appBar: AppBar(title: Text('حجوزات الاطباء')),
+            appBar: AppBar(title: Text('حجوزات الدورات')),
             body: Padding(
               padding:  EdgeInsets.only(
                 top: 15.h,
@@ -87,12 +87,38 @@ class _CourseListState extends State<CourseList> {
                                 'حساب المريض : ${coursesList[index].userEmail.toString()}',
                                 style: TextStyle(fontSize: 17),
                               )),
+                              Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                'اسم المريض : ${coursesList[index].userName.toString()}',
+                                style: TextStyle(fontSize: 17),
+                              )),
+                              Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                'هاتف المريض : ${coursesList[index].userPhone.toString()}',
+                                style: TextStyle(fontSize: 17),
+                              )),
                           Align(
                               alignment: Alignment.topRight,
                               child: Text(
                                 'تاريخ الأشتراك: ${getDate(date!)}',
                                 style: TextStyle(fontSize: 17),
                               )),
+                              InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            super.widget));
+                                base
+                                    .child(coursesList[index].id.toString())
+                                    .remove();
+                            },
+                            child: Icon(Icons.delete,
+                                color: Color.fromARGB(255, 122, 122, 122)),
+                          )
                         ]),
                       ),
                     ),
