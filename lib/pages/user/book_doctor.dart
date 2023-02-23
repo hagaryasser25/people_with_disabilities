@@ -110,6 +110,8 @@ class _BookDoctorState extends State<BookDoctor> {
 
                           await companyRef.child(id!).set({
                             'userEmail': currentUser.email,
+                            'userName': currentUser.fullName,
+                            'userPhone': currentUser.phoneNumber,
                             'doctorName': widget.doctorName,
                             'date': date,
                             'status': status,

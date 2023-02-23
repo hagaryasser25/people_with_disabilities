@@ -86,6 +86,18 @@ class _DoctorListState extends State<DoctorList> {
                                 'حساب المريض : ${doctorsList[index].userEmail.toString()}',
                                 style: TextStyle(fontSize: 17),
                               )),
+                              Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                'اسم المريض : ${doctorsList[index].userName.toString()}',
+                                style: TextStyle(fontSize: 17),
+                              )),
+                              Align(
+                              alignment: Alignment.topRight,
+                              child: Text(
+                                'رقم الهاتف : ${doctorsList[index].userPhone.toString()}',
+                                style: TextStyle(fontSize: 17),
+                              )),
                           Align(
                               alignment: Alignment.topRight,
                               child: Text(
