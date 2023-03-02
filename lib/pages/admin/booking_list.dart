@@ -5,9 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:people_with_disabilities/pages/admin/add_doctor.dart';
-import 'package:people_with_disabilities/pages/admin/admin_courses.dart';
 import 'package:people_with_disabilities/pages/admin/admin_doctor.dart';
 import 'package:people_with_disabilities/pages/admin/doctor_list.dart';
+import 'package:people_with_disabilities/pages/admin/jobs_list.dart';
 import 'package:people_with_disabilities/pages/landing_page.dart';
 
 import 'course_list.dart';
@@ -68,10 +68,10 @@ class _BookingListState extends State<BookingList> {
                           InkWell(
                               onTap: () {
                                 Navigator.pushNamed(
-                                    context, CourseList.routeName);
+                                    context, JobsList.routeName);
                               },
-                              child: card('assets/images/courses.png',
-                                  'حجوزات الدورات')),
+                              child: card('assets/images/job.jpg',
+                                  'تقديمات الوظائف')),
                         ],
                       ),
                     ),

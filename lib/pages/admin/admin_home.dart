@@ -5,8 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:people_with_disabilities/pages/admin/add_doctor.dart';
-import 'package:people_with_disabilities/pages/admin/admin_courses.dart';
+import 'package:people_with_disabilities/pages/admin/add_jobs.dart';
 import 'package:people_with_disabilities/pages/admin/admin_doctor.dart';
+import 'package:people_with_disabilities/pages/admin/admin_jobs.dart';
 import 'package:people_with_disabilities/pages/admin/booking_list.dart';
 import 'package:people_with_disabilities/pages/landing_page.dart';
 
@@ -61,10 +62,10 @@ class _AdminHomeState extends State<AdminHome> {
                           InkWell(
                               onTap: () {
                                 Navigator.pushNamed(
-                                    context, AdminCourses.routeName);
+                                    context, AdminJobs.routeName);
                               },
-                              child: card('assets/images/courses.png',
-                                  'أضافة دورة تدريبية')),
+                              child: card('assets/images/job.jpg',
+                                  'أضافة وظيفة')),
                         ],
                       ),
                     ),

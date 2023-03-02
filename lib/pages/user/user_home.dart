@@ -12,8 +12,8 @@ import 'package:people_with_disabilities/pages/user/essay_eye.dart';
 import 'package:people_with_disabilities/pages/user/essay_hear.dart';
 import 'package:people_with_disabilities/pages/user/essay_outism.dart';
 import 'package:people_with_disabilities/pages/user/essay_physical.dart';
-import 'package:people_with_disabilities/pages/user/user_courses.dart';
 import 'package:people_with_disabilities/pages/user/user_doctor.dart';
+import 'package:people_with_disabilities/pages/user/user_jobs.dart';
 import '../models/users_model.dart';
 
 class UserHome extends StatefulWidget {
@@ -127,10 +127,10 @@ class _UserHomeState extends State<UserHome> {
                                   onTap: () {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) {
-                                      return UserCourses();
+                                      return UserJobs();
                                     }));
                                   },
-                                  title: Text('حجز دورة تدريبية'),
+                                  title: Text('التقديم فى وظيفة'),
                                   leading: Icon(Icons.task),
                                 ))),
                         Divider(

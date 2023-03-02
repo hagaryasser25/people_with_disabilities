@@ -4,15 +4,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:people_with_disabilities/pages/admin/add_courses.dart';
 import 'package:people_with_disabilities/pages/admin/add_doctor.dart';
-import 'package:people_with_disabilities/pages/admin/admin_courses.dart';
+import 'package:people_with_disabilities/pages/admin/add_jobs.dart';
 import 'package:people_with_disabilities/pages/admin/admin_doctor.dart';
 import 'package:people_with_disabilities/pages/admin/admin_home.dart';
+import 'package:people_with_disabilities/pages/admin/admin_jobs.dart';
 import 'package:people_with_disabilities/pages/admin/booking_list.dart';
 import 'package:people_with_disabilities/pages/admin/course_list.dart';
 import 'package:people_with_disabilities/pages/admin/doctor_list.dart';
 import 'package:people_with_disabilities/pages/admin/fetch_doctors.dart';
+import 'package:people_with_disabilities/pages/admin/jobs_list.dart';
 import 'package:people_with_disabilities/pages/auth/admin_login.dart';
 import 'package:people_with_disabilities/pages/auth/login.dart';
 import 'package:people_with_disabilities/pages/auth/signup.dart';
@@ -24,7 +25,6 @@ import 'package:people_with_disabilities/pages/user/essay_eye.dart';
 import 'package:people_with_disabilities/pages/user/essay_hear.dart';
 import 'package:people_with_disabilities/pages/user/essay_outism.dart';
 import 'package:people_with_disabilities/pages/user/essay_physical.dart';
-import 'package:people_with_disabilities/pages/user/user_courses.dart';
 import 'package:people_with_disabilities/pages/user/user_doctor.dart';
 import 'package:people_with_disabilities/pages/user/user_home.dart';
 
@@ -73,18 +73,18 @@ class _MyAppState extends State<MyApp> {
         AdminHome.routeName: (ctx) => AdminHome(),
         AdminDoctor.routeName: (ctx) => AdminDoctor(),
         AddDoctor.routeName: (ctx) => AddDoctor(),
-        AdminCourses.routeName: (ctx) => AdminCourses(),
-        AddCourse.routeName: (ctx) => AddCourse(),
         LandingPage.routeName: (ctx) => LandingPage(),
         EssayEye.routeName: (ctx) => EssayEye(),
         EssayHear.routeName: (ctx) => EssayHear(),
         EssayOutism.routeName: (ctx) => EssayOutism(),
         EssayPhysical.routeName: (ctx) => EssayPhysical(),
         UserDoctor.routeName: (ctx) => UserDoctor(),
-        UserCourses.routeName: (ctx) => UserCourses(),
         BookingList.routeName: (ctx) => BookingList(),
         DoctorList.routeName: (ctx) => DoctorList(),
         CourseList.routeName: (ctx) => CourseList(),
+        AddJob.routeName: (ctx) => AddJob(),
+        AdminJobs.routeName: (ctx) => AdminJobs(),
+        JobsList.routeName: (ctx) => JobsList(),
       },
     );
   }
