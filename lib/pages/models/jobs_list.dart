@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 class JobsListV {
   JobsListV({
     String? id,
-    String? faculty,
     String? name,
     String? exp,
     String? jobName,
@@ -12,7 +11,6 @@ class JobsListV {
     String? age,
   }) {
     _id = id;
-    _faculty = faculty;
     _name = name;
     _exp = exp;
     jobName =jobName;
@@ -23,7 +21,6 @@ class JobsListV {
 
   JobsListV.fromJson(dynamic json) {
     _id = json['id'];
-    _faculty = json['faculty'];
     _name = json['name'];
     _exp = json['exp'];
     _jobName = json['jobName'];
@@ -33,7 +30,6 @@ class JobsListV {
   }
 
   String? _id;
-  String? _faculty;
   String? _name;
   String? _exp;
   String? _jobName;
@@ -42,7 +38,6 @@ class JobsListV {
   String? _age;
 
   String? get id => _id;
-  String? get faculty => _faculty;
   String? get name => _name;
   String? get exp => _exp;
   String? get jobName => _jobName;
@@ -53,7 +48,6 @@ class JobsListV {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = _id;
-    map['faculty'] = _faculty;
     map['name'] = _name;
     map['exp'] = _exp;
     map['jobName'] = jobName;

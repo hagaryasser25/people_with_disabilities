@@ -24,7 +24,6 @@ class GetJob extends StatefulWidget {
 }
 
 class _GetJobState extends State<GetJob> {
-  var facultyController = TextEditingController();
   var ageController = TextEditingController();
   var expController = TextEditingController();
   var qualificationController = TextEditingController();
@@ -87,7 +86,7 @@ class _GetJobState extends State<GetJob> {
                     SizedBox(
                       height: 65.h,
                       child: TextField(
-                        controller: facultyController,
+                        controller: qualificationController,
                         decoration: InputDecoration(
                           fillColor: HexColor('#155564'),
                           focusedBorder: OutlineInputBorder(
@@ -95,7 +94,7 @@ class _GetJobState extends State<GetJob> {
                                 color: HexColor('#58d2e7'), width: 2.0),
                           ),
                           border: OutlineInputBorder(),
-                          hintText: 'اسم الكلية',
+                          hintText: 'المؤهل',
                         ),
                       ),
                     ),
@@ -140,24 +139,7 @@ class _GetJobState extends State<GetJob> {
                       ),
                     ),
                     SizedBox(height: 20.h),
-                    SizedBox(
-                      height: 65.h,
-                      child: TextField(
-                        controller: qualificationController,
-                        decoration: InputDecoration(
-                          fillColor: HexColor('#155564'),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: HexColor('#58d2e7'), width: 2.0),
-                          ),
-                          border: OutlineInputBorder(),
-                          hintText: 'المؤهل',
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
+
                     ConstrainedBox(
                       constraints: BoxConstraints.tightFor(
                           width: double.infinity, height: 65.h),
@@ -166,18 +148,12 @@ class _GetJobState extends State<GetJob> {
                           primary: Colors.blue,
                         ),
                         onPressed: () async {
-                          String faculty = facultyController.text.trim();
                           String age = ageController.text.trim();
                           String exp = expController.text.trim();
                           String qualification =
                               qualificationController.text.trim();
                           String? name = currentUser.fullName;
                           String? phone = currentUser.phoneNumber;
-
-                          if (faculty.isEmpty) {
-                            Fluttertoast.showToast(msg: 'ادخل اسم الكلية');
-                            return;
-                          }
 
                           if (age.isEmpty) {
                             Fluttertoast.showToast(msg: 'ادخل العمر');
@@ -210,7 +186,6 @@ class _GetJobState extends State<GetJob> {
                             await companyRef.child(id!).set({
                               'id': id,
                               'date': date,
-                              'faculty': faculty,
                               'age': age,
                               'exp': exp,
                               'qualification': qualification,

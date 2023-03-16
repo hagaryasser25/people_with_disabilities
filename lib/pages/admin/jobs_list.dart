@@ -108,12 +108,6 @@ class _JobsListState extends State<JobsList> {
                                 'الخبرة : ${jobsList[index].exp.toString()}',
                                 style: TextStyle(fontSize: 17),
                               )),
-                                                             Align(
-                              alignment: Alignment.topRight,
-                              child: Text(
-                                'الكلية : ${jobsList[index].faculty.toString()}',
-                                style: TextStyle(fontSize: 17),
-                              )),
                                                                                            Align(
                               alignment: Alignment.topRight,
                               child: Text(
